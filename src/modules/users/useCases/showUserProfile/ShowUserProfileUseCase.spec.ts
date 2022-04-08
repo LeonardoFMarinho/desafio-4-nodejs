@@ -40,7 +40,6 @@ describe('Show User Profile With Token', () => {
     const authenticatioinOk = await authenticateUserUsecase.execute({email: user.email, password: user.password })
 
     const showProfile = await showUserProfileUseCase.execute(authenticatioinOk.user.id as string)
-    console.log(showProfile)
     expect(authenticatioinOk.token).toBeTruthy()
     expect(authenticatioinOk).toHaveProperty('token')
     expect(authenticatioinOk.user).toHaveProperty('name')
